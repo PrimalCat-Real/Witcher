@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Rend Cast",
     "emote":{
-        "isLoop": "false",
+        "isLoop": false,
         "returnTick": 0,
         "beginTick":10,
         "endTick":20,

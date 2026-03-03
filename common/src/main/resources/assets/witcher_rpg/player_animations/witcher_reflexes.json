@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Witcher Reflexes",
     "emote":{
-        "isLoop": "false",
+        "isLoop": false,
         "returnTick": 0,
         "beginTick":5,
         "endTick":10,

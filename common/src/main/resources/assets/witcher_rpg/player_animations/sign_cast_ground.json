@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Sign Cast Ground",
     "emote":{
-        "isLoop": "false",
+        "isLoop": false,
         "returnTick": 0,
         "beginTick":5,
         "endTick":10,

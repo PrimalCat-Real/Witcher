@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Rend Release",
     "emote":{
-        "isLoop": "false",
+        "isLoop": false,
         "returnTick": 0,
         "beginTick":0,
         "endTick":5,

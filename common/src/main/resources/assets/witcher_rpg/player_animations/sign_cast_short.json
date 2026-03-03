@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Sign Cast",
     "emote":{
-        "isLoop": "false",
+        "isLoop": false,
         "returnTick": 0,
         "beginTick":3,
         "endTick":10,

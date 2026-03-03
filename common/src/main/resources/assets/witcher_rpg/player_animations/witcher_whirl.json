@@ -3,7 +3,7 @@
     "author": "Fichte",
     "description": "Witcher Whril",
     "emote":{
-        "isLoop": "true",
+        "isLoop": true,
         "returnTick": 1,
         "beginTick":0,
         "endTick":20,

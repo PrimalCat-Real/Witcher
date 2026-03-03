@@ -7,12 +7,12 @@
   "active": {
     "cast": {
       "duration": 0.3,
-      "animation": "witcher_rpg:rend_cast",
+      "animation": { "id": "witcher_rpg:rend_cast" },
       "movement_speed": 0.1
     }
   },
   "release": {
-    "animation": "witcher_rpg:rend_release",
+    "animation": { "id": "witcher_rpg:rend_release" },
     "particles": [
       {
         "particle_id": "crimson_spore",

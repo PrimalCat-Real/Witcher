@@ -7,7 +7,7 @@
     "cast": {
       "duration": 7.5,
       "channel_ticks": 4,
-      "animation": "witcher_rpg:sign_cast_long",
+      "animation": { "id": "witcher_rpg:sign_cast_long" },
       "movement_speed": 0.5,
       "sound": {
         "id": "witcher_rpg:igni_sign",

@@ -146,6 +146,8 @@ public class WitcherClassMod {
 		Registry.register(Registries.ITEM_GROUP, WitcherGroup.WITCHER_KEY, WitcherGroup.WITCHER);
 		WitcherGroup.registerItemGroups();
 		WitcherMaterials.registerModItems();
+		LOGGER.info("SpellPower HASTE ID: " + net.spell_power.api.SpellPowerMechanics.HASTE.id);
+		LOGGER.info("Is HASTE present in Registry: " + Registries.ATTRIBUTE.getEntry(net.spell_power.api.SpellPowerMechanics.HASTE.id).isPresent());
 		WeaponsRegister.register(itemConfig.value.weapons);
 		Armors.register(itemConfig.value.armor_sets);
 		WitcherTrinkets.register(trinketConfig.value.entries);

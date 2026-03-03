@@ -5,7 +5,7 @@
   "learn": {},
   "active": {},
   "release": {
-    "animation": "witcher_rpg:sign_cast_ground",
+    "animation": { "id": "witcher_rpg:sign_cast_ground" },
     "particles": [
       {
         "particle_id": "witcher_rpg:yrden_sign_cast",

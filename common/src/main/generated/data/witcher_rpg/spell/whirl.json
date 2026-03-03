@@ -8,7 +8,7 @@
     "cast": {
       "duration": 2.5,
       "channel_ticks": 8,
-      "animation": "witcher_rpg:witcher_whirl",
+      "animation": { "id": "witcher_rpg:witcher_whirl" },
       "movement_speed": 1.3,
       "sound": {
         "id": "witcher_rpg:whirl",

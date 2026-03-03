@@ -9,7 +9,7 @@
     }
   },
   "release": {
-    "animation": "witcher_rpg:sign_cast_short",
+    "animation": { "id": "witcher_rpg:sign_cast_short" },
     "particles": [
       {
         "particle_id": "spell_engine:electric_arc_a",
