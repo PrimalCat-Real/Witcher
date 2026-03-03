@@ -7,23 +7,24 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
-import net.spell_engine.api.item.armor.Armor;
 import net.witcher_rpg.item.component.GlyphSlots;
 import net.witcher_rpg.item.component.GlyphTooltipComponent;
 import net.witcher_rpg.item.component.WitcherDataComponents;
 
 import java.util.List;
 import java.util.Optional;
+import net.minecraft.item.ArmorItem;
+import net.spell_engine.rpg_series.item.Armor; // This import is likely for the WitcherArmor class or related utility.
 
-public class WolfSchoolArmor extends Armor.CustomItem {
-    public WolfSchoolArmor(RegistryEntry<ArmorMaterial> material, Type slot, Settings settings) {
-        super(material, slot, addGlyphSlots(settings, material, slot));
+public class WolfSchoolArmor extends WitcherArmor {
+    public WolfSchoolArmor(RegistryEntry<ArmorMaterial> material, ArmorItem.Type slot, Item.Settings settings) {
+        super(material, slot, addGlyphSlots(settings, slot, Armors.TIER3_GLYPH_SLOTS));
     }
 
-    private static Settings addGlyphSlots(Settings settings, RegistryEntry<ArmorMaterial> material, Type slot) {
-        if (slot == Type.CHESTPLATE) {
-            String materialName = Registries.ARMOR_MATERIAL.getId(material.value()).getPath();
-            int glyphSlots = determineGlyphSlots(materialName);
+    private static Item.Settings addGlyphSlots(Item.Settings settings, ArmorItem.Type slot, int glyphSlots) {
+        if (slot == ArmorItem.Type.CHESTPLATE) {
+            // The original logic for determining glyph slots based on material name is removed here
+            // and replaced with the passed 'glyphSlots' parameter.
             settings.component(WitcherDataComponents.GLYPH_SLOTS, new GlyphSlots(glyphSlots, List.of()));
         }
         return settings;

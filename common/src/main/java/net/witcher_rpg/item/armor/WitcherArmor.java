@@ -8,21 +8,22 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.spell_engine.api.item.armor.Armor;
 import net.witcher_rpg.item.component.GlyphSlots;
 import net.witcher_rpg.item.component.GlyphTooltipComponent;
 import net.witcher_rpg.item.component.WitcherDataComponents;
 
 import java.util.List;
+import net.minecraft.item.ArmorItem;
+import net.spell_engine.rpg_series.item.Armor;
 import java.util.Optional;
 
 public class WitcherArmor extends Armor.CustomItem {
-    public WitcherArmor(RegistryEntry<ArmorMaterial> material, Type slot, Settings settings) {
+    public WitcherArmor(RegistryEntry<ArmorMaterial> material, ArmorItem.Type slot, Item.Settings settings) {
         super(material, slot, addGlyphSlots(settings, slot, Armors.TIER1_GLYPH_SLOTS));
     }
 
-    private static Settings addGlyphSlots(Settings settings, Type slot, int glyphSlots) {
-        if (slot == Type.CHESTPLATE) {
+    private static Item.Settings addGlyphSlots(Item.Settings settings, ArmorItem.Type slot, int glyphSlots) {
+        if (slot == ArmorItem.Type.CHESTPLATE) {
             settings.component(WitcherDataComponents.GLYPH_SLOTS, new GlyphSlots(glyphSlots, List.of()));
         }
         return settings;

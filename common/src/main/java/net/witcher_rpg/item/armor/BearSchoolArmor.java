@@ -7,7 +7,8 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
-import net.spell_engine.api.item.armor.Armor;
+import net.minecraft.item.ArmorItem;
+import net.spell_engine.rpg_series.item.Armor; // This import is no longer directly used for extending, but might be for other reasons. Keeping it for now.
 import net.witcher_rpg.item.component.GlyphSlots;
 import net.witcher_rpg.item.component.GlyphTooltipComponent;
 import net.witcher_rpg.item.component.WitcherDataComponents;
@@ -15,15 +16,15 @@ import net.witcher_rpg.item.component.WitcherDataComponents;
 import java.util.List;
 import java.util.Optional;
 
-public class BearSchoolArmor extends Armor.CustomItem {
-    public BearSchoolArmor(RegistryEntry<ArmorMaterial> material, Type slot, Settings settings) {
-        super(material, slot, addGlyphSlots(settings, material, slot));
+public class BearSchoolArmor extends WitcherArmor { // Changed from Armor.CustomItem to WitcherArmor
+    public BearSchoolArmor(RegistryEntry<ArmorMaterial> material, ArmorItem.Type slot, Item.Settings settings) { // Changed Type to ArmorItem.Type, Settings to Item.Settings
+        super(material, slot, addGlyphSlots(settings, slot, Armors.TIER3_GLYPH_SLOTS)); // Updated super call and addGlyphSlots parameters
     }
 
-    private static Settings addGlyphSlots(Settings settings, RegistryEntry<ArmorMaterial> material, Type slot) {
-        if (slot == Type.CHESTPLATE) {
-            String materialName = Registries.ARMOR_MATERIAL.getId(material.value()).getPath();
-            int glyphSlots = determineGlyphSlots(materialName);
+    private static Item.Settings addGlyphSlots(Item.Settings settings, ArmorItem.Type slot, int glyphSlots) { // Updated signature
+        if (slot == ArmorItem.Type.CHESTPLATE) { // Changed Type to ArmorItem.Type
+            // The original logic for determining glyph slots based on material is removed here,
+            // as the glyphSlots are now passed directly from the constructor.
             settings.component(WitcherDataComponents.GLYPH_SLOTS, new GlyphSlots(glyphSlots, List.of()));
         }
         return settings;

@@ -14,15 +14,15 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.spell_engine.api.config.ArmorSetConfig;
 import net.spell_engine.api.config.AttributeModifier;
-import net.spell_engine.api.item.Equipment;
+import net.spell_engine.rpg_series.item.Equipment;
 import net.spell_engine.api.spell.SpellDataComponents;
-import net.spell_power.api.SpellPowerMechanics;
 import net.witcher_rpg.item.WitcherGroup;
-import net.spell_engine.api.item.armor.Armor;
+import net.spell_engine.rpg_series.item.Armor;
 import net.witcher_rpg.item.WitcherMaterials;
 import net.witcher_rpg.item.component.GlyphSlots;
 import net.witcher_rpg.item.component.WitcherDataComponents;
 import net.witcher_rpg.spell.SetBonuses;
+import net.spell_power.api.SpellPowerMechanics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +87,7 @@ public class Armors {
     }
     public static final ArrayList<Armor.Entry> entries = new ArrayList<>();
     private static Armor.Entry create(RegistryEntry<ArmorMaterial> material, Identifier id, int durability,
-                                      Armor.Set.ItemFactory factory, ArmorSetConfig defaults, int tier, Armor.ItemSettingsTweaker settings) {
+                                      Armor.Set.ItemFactory<?> factory, ArmorSetConfig defaults, int tier, Armor.ItemSettingsTweaker settings) {
         var entry = Armor.Entry.create(
                 material,
                 id,
@@ -290,7 +290,7 @@ public class Armors {
 
     ////ARMOR SETS
     //TIER 1 ARMOR
-    public static final Armor.Set witcherArmorSet =
+    public static final Armor.Set<?> witcherArmorSet =
             create(
                     material_witcher, Identifier.of(MOD_ID, "witcher"), 20, WitcherArmor::new,
                     ArmorSetConfig.with(
@@ -321,7 +321,7 @@ public class Armors {
                     .translate("Kaer Morhen Band","Kaer Morhen Suit","Kaer Morhen Pants","Kaer Morhen Boots");
 
     //FELINE SCHOOL ARMOR
-    public static final Armor.Set felineSchoolArmorSet =
+    public static final Armor.Set<?> felineSchoolArmorSet =
             create(
                     material_feline, Identifier.of(MOD_ID, "feline"), 15, CatSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -347,7 +347,7 @@ public class Armors {
                                     ))),10,null).armorSet()
                     .translate("Feline Band","Feline Suit","Feline Legs","Feline Boots");
 
-    public static final Armor.Set enhancedFelineSchoolArmorSet =
+    public static final Armor.Set<?> enhancedFelineSchoolArmorSet =
             create(
                     material_enhanced_feline, Identifier.of(MOD_ID, "enhanced_feline"), 20, CatSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -377,7 +377,7 @@ public class Armors {
                                     ))),10,null).armorSet()
                     .translate("§2Enhanced§r Feline Band","§2Enhanced§r Feline Suit","§2Enhanced§r Feline Legs","§2Enhanced§r Feline Boots");
 
-    public static final Armor.Set superiorFelineSchoolArmorSet =
+    public static final Armor.Set<?> superiorFelineSchoolArmorSet =
             create(
                     material_superior_feline, Identifier.of(MOD_ID, "superior_feline"), 25, CatSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -434,7 +434,7 @@ public class Armors {
                                             AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
                                     ))),10,null).armorSet()
                     .translate("§2Superior§r Feline Band","§2Superior§r Feline Suit","§2Superior§r Feline Legs","§2Superior§r Feline Boots");
-    public static final Armor.Set mastercraftedFelineSchoolArmorSet =
+    public static final Armor.Set<?> mastercraftedFelineSchoolArmorSet =
             create(
                     material_mastercrafted_feline, Identifier.of(MOD_ID, "mastercrafted_feline"), 32, CatSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -491,7 +491,7 @@ public class Armors {
                                             AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT4)
                                     ))),10,commonSettings(SetBonuses.mastercrafted_feline.id(), TIER4_GLYPH_SLOTS)).armorSet()
                     .translate("§2Mastercrafted§r Feline Band","§2Mastercrafted§r Feline Suit","§2Mastercrafted§r Feline Legs","§2Mastercrafted§r Feline Boots");
-    public static final Armor.Set grandmasterFelineSchoolArmorSet =
+    public static final Armor.Set<?> grandmasterFelineSchoolArmorSet =
             create(
                     material_grandmaster_feline, Identifier.of(MOD_ID, "grandmaster_feline"), 40, CatSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -549,7 +549,7 @@ public class Armors {
                                     ))),10,commonSettings(SetBonuses.grandmaster_feline.id(), TIER5_GLYPH_SLOTS)).armorSet()
                     .translate("§2Grandmaster§r Feline Band","§2Grandmaster§r Feline Suit","§2Grandmaster§r Feline Legs","§2Grandmaster§r Feline Boots");
     //GRIFFIN SCHOOL ARMOR
-    public static final Armor.Set griffinArmorSet =
+    public static final Armor.Set<?> griffinArmorSet =
             create(
                     material_griffin, Identifier.of(MOD_ID, "griffin"), 15, GriffinSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -575,7 +575,7 @@ public class Armors {
                                     ))),10,null).armorSet()
                     .translate("Griffin Band","Griffin Suit","Griffin Pants","Griffin Boots");
 
-    public static final Armor.Set enhancedGriffinArmorSet =
+    public static final Armor.Set<?> enhancedGriffinArmorSet =
             create(
                     material_enhanced_griffin, Identifier.of(MOD_ID, "enhanced_griffin"), 20, GriffinSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -605,7 +605,7 @@ public class Armors {
                                     ))),10,null).armorSet()
                     .translate("§2Enhanced§r Griffin Band","§2Enhanced§r Griffin Suit","§2Enhanced§r Griffin Pants","§2Enhanced§r Griffin Boots");
 
-    public static final Armor.Set superiorGriffinArmorSet =
+    public static final Armor.Set<?> superiorGriffinArmorSet =
             create(
                     material_superior_griffin, Identifier.of(MOD_ID, "superior_griffin"), 25, GriffinSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -634,7 +634,7 @@ public class Armors {
                                             AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
                                     ))),10,null).armorSet()
                     .translate("§2Superior§r Griffin Band","§2Superior§r Griffin Suit","§2Superior§r Griffin Pants","§2Superior§r Griffin Boots");
-    public static final Armor.Set mastercraftedGriffinArmorSet =
+    public static final Armor.Set<?> mastercraftedGriffinArmorSet =
             create(
                     material_mastercrafted_griffin, Identifier.of(MOD_ID, "mastercrafted_griffin"), 32, GriffinSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -663,7 +663,7 @@ public class Armors {
                                             AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT4)
                                     ))),10,commonSettings(SetBonuses.mastercrafted_griffin.id(), TIER4_GLYPH_SLOTS)).armorSet()
                     .translate("§2Mastercrafted§r Griffin Band","§2Mastercrafted§r Griffin Suit","§2Mastercrafted§r Griffin Pants","§2Mastercrafted§r Griffin Boots");
-    public static final Armor.Set grandmasterGriffinArmorSet =
+    public static final Armor.Set<?> grandmasterGriffinArmorSet =
             create(
                     material_grandmaster_griffin, Identifier.of(MOD_ID, "grandmaster_griffin"), 40, GriffinSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -694,7 +694,7 @@ public class Armors {
                     .translate("§2Grandmaster§r Griffin Band","§2Grandmaster§r Griffin Suit","§2Grandmaster§r Griffin Pants","§2Grandmaster§r Griffin Boots");
 
     //WOLVEN SCHOOL ARMOR
-    public static final Armor.Set wolvenArmorSet =
+    public static final Armor.Set<?> wolvenArmorSet =
             create(
                     material_wolven, Identifier.of(MOD_ID, "wolven"), 15, WolfSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -719,7 +719,7 @@ public class Armors {
                                             AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
                                     ))),10,null).armorSet()
                     .translate(  "Wolven Band", "Wolven Suit", "Wolven Legs", "Wolven Boots");
-    public static final Armor.Set enhancedWolvenArmorSet =
+    public static final Armor.Set<?> enhancedWolvenArmorSet =
             create(
                     material_enhanced_wolven, Identifier.of(MOD_ID, "enhanced_wolven"), 20, WolfSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -748,7 +748,7 @@ public class Armors {
                                             AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT2)
                                     ))),10,null).armorSet()
                     .translate(  "§2Enhanced§r Wolven Band", "§2Enhanced§r Wolven Suit", "§2Enhanced§r Wolven Legs", "§2Enhanced§r Wolven Boots");
-    public static final Armor.Set superiorWolvenArmorSet =
+    public static final Armor.Set<?> superiorWolvenArmorSet =
             create(
                     material_superior_wolven, Identifier.of(MOD_ID, "superior_wolven"), 25, WolfSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -777,7 +777,7 @@ public class Armors {
                                             AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT3)
                                     ))),10,null).armorSet()
                     .translate(  "§2Superior§r Wolven Band", "§2Superior§r Wolven Suit", "§2Superior§r Wolven Legs", "§2Superior§r Wolven Boots");
-    public static final Armor.Set mastercraftedWolvenArmorSet =
+    public static final Armor.Set<?> mastercraftedWolvenArmorSet =
             create(
                     material_mastercrafted_wolven, Identifier.of(MOD_ID, "mastercrafted_wolven"), 32, WolfSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -806,7 +806,7 @@ public class Armors {
                                             AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT4)
                                     ))),10,commonSettings(SetBonuses.mastercrafted_wolven.id(), TIER4_GLYPH_SLOTS)).armorSet()
                     .translate(  "§2Mastercrafted§r Wolven Band", "§2Mastercrafted§r Wolven Suit", "§2Mastercrafted§r Wolven Legs", "§2Mastercrafted§r Wolven Boots");
-    public static final Armor.Set grandmasterWolvenArmorSet =
+    public static final Armor.Set<?> grandmasterWolvenArmorSet =
             create(
                     material_grandmaster_wolven, Identifier.of(MOD_ID, "grandmaster_wolven"), 40, WolfSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -837,7 +837,7 @@ public class Armors {
                     .translate(  "§2Grandmaster§r Wolven Band", "§2Grandmaster§r Wolven Suit", "§2Grandmaster§r Wolven Legs", "§2Grandmaster§r Wolven Boots");
 
     //URSINE SCHOOL ARMOR
-    public static final Armor.Set ursineArmorSet =
+    public static final Armor.Set<?> ursineArmorSet =
             create(
                     material_ursine, Identifier.of(MOD_ID, "ursine"), 15, BearSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -862,7 +862,7 @@ public class Armors {
                                             AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
                                     ))),10,null).armorSet()
                     .translate(  "Ursine Band", "Ursine Suit", "Ursine Pants", "Ursine Boots");
-    public static final Armor.Set enhancedUrsineArmorSet =
+    public static final Armor.Set<?> enhancedUrsineArmorSet =
             create(
                     material_enhanced_ursine, Identifier.of(MOD_ID, "enhanced_ursine"), 20, BearSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -891,7 +891,7 @@ public class Armors {
                                             AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
                                     ))),10,null).armorSet()
                     .translate(  "§2Enhanced§r Ursine Band", "§2Enhanced§r Ursine Suit", "§2Enhanced§r Ursine Pants", "§2Enhanced§r Ursine Boots");
-    public static final Armor.Set superiorUrsineArmorSet =
+    public static final Armor.Set<?> superiorUrsineArmorSet =
             create(
                     material_superior_ursine, Identifier.of(MOD_ID, "superior_ursine"), 25, BearSchoolArmor::new,
                      ArmorSetConfig.with(
@@ -948,7 +948,7 @@ public class Armors {
                                             AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
                                     ))),10,null).armorSet()
                     .translate(  "§2Superior§r Ursine Band", "§2Superior§r Ursine Suit", "§2Superior§r Ursine Pants", "§2Superior§r Ursine Boots");
-    public static final Armor.Set mastercraftedUrsineArmorSet =
+    public static final Armor.Set<?> mastercraftedUrsineArmorSet =
             create(
                     material_mastercrafted_ursine, Identifier.of(MOD_ID, "mastercrafted_ursine"), 32, BearSchoolArmor::new,
                     ArmorSetConfig.with(
@@ -1005,7 +1005,7 @@ public class Armors {
                                             AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT4)
                                     ))),10,commonSettings(SetBonuses.mastercrafted_ursine.id(), TIER4_GLYPH_SLOTS)).armorSet()
                     .translate(  "§2Mastercrafted§r Ursine Band", "§2Mastercrafted§r Ursine Suit", "§2Mastercrafted§r Ursine Pants", "§2Mastercrafted§r Ursine Boots");
-    public static final Armor.Set grandmasterUrsineArmorSet =
+    public static final Armor.Set<?> grandmasterUrsineArmorSet =
             create(
                     material_grandmaster_ursine, Identifier.of(MOD_ID, "grandmaster_ursine"), 40, BearSchoolArmor::new,
                     ArmorSetConfig.with(
