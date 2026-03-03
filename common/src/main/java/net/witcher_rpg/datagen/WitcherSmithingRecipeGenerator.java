@@ -2,7 +2,9 @@ package net.witcher_rpg.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.util.Identifier;
+import net.minecraft.item.Item;
 import net.more_rpg_classes.datagen.SmithingRecipeGenerator;
+import net.spell_engine.rpg_series.item.Armor;
 import net.witcher_rpg.item.WitcherArmorDiagrams;
 import net.witcher_rpg.item.WitcherMaterials;
 import net.witcher_rpg.item.armor.Armors;
@@ -26,6 +28,13 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
         generateModdedSwordUpgrades();
     }
 
+    private void upgradeArmorSet(String prefix, Armor.Set<?> base, Item template, Item material, Armor.Set<?> upgraded) {
+        createSimpleSmithingRecipe(prefix + "_helmet", (Item)base.head, template, material, (Item)upgraded.head);
+        createSimpleSmithingRecipe(prefix + "_chestplate", (Item)base.chest, template, material, (Item)upgraded.chest);
+        createSimpleSmithingRecipe(prefix + "_leggings", (Item)base.legs, template, material, (Item)upgraded.legs);
+        createSimpleSmithingRecipe(prefix + "_boots", (Item)base.feet, template, material, (Item)upgraded.feet);
+    }
+    
     private void generateArmorUpgrades() {
         // Get diagram items
         var enhancedDiagram = WitcherArmorDiagrams.ENTRIES.stream()
@@ -43,7 +52,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
 
         // FELINE SCHOOL - Steel based (melee/agility armor)
         // Base -> Enhanced
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "enhanced_feline",
                 Armors.felineSchoolArmorSet,
                 enhancedDiagram,
@@ -51,7 +60,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.enhancedFelineSchoolArmorSet
         );
         // Enhanced -> Superior
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "superior_feline",
                 Armors.enhancedFelineSchoolArmorSet,
                 superiorDiagram,
@@ -59,7 +68,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.superiorFelineSchoolArmorSet
         );
         // Superior -> Mastercrafted
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "mastercrafted_feline",
                 Armors.superiorFelineSchoolArmorSet,
                 mastercraftedDiagram,
@@ -67,7 +76,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.mastercraftedFelineSchoolArmorSet
         );
         // Mastercrafted -> Grandmaster
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "grandmaster_feline",
                 Armors.mastercraftedFelineSchoolArmorSet,
                 grandmasterDiagram,
@@ -77,7 +86,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
 
         // GRIFFIN SCHOOL - Silver based (magic armor)
         // Base -> Enhanced
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "enhanced_griffin",
                 Armors.griffinArmorSet,
                 enhancedDiagram,
@@ -85,7 +94,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.enhancedGriffinArmorSet
         );
         // Enhanced -> Superior
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "superior_griffin",
                 Armors.enhancedGriffinArmorSet,
                 superiorDiagram,
@@ -93,7 +102,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.superiorGriffinArmorSet
         );
         // Superior -> Mastercrafted
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "mastercrafted_griffin",
                 Armors.superiorGriffinArmorSet,
                 mastercraftedDiagram,
@@ -101,7 +110,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.mastercraftedGriffinArmorSet
         );
         // Mastercrafted -> Grandmaster
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "grandmaster_griffin",
                 Armors.mastercraftedGriffinArmorSet,
                 grandmasterDiagram,
@@ -111,7 +120,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
 
         // URSINE SCHOOL - Steel based (heavy armor)
         // Base -> Enhanced
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "enhanced_ursine",
                 Armors.ursineArmorSet,
                 enhancedDiagram,
@@ -119,7 +128,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.enhancedUrsineArmorSet
         );
         // Enhanced -> Superior
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "superior_ursine",
                 Armors.enhancedUrsineArmorSet,
                 superiorDiagram,
@@ -127,7 +136,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.superiorUrsineArmorSet
         );
         // Superior -> Mastercrafted
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "mastercrafted_ursine",
                 Armors.superiorUrsineArmorSet,
                 mastercraftedDiagram,
@@ -135,7 +144,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.mastercraftedUrsineArmorSet
         );
         // Mastercrafted -> Grandmaster
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "grandmaster_ursine",
                 Armors.mastercraftedUrsineArmorSet,
                 grandmasterDiagram,
@@ -145,7 +154,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
 
         // WOLVEN SCHOOL - Silver based (hybrid armor)
         // Base -> Enhanced
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "enhanced_wolven",
                 Armors.wolvenArmorSet,
                 enhancedDiagram,
@@ -153,7 +162,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.enhancedWolvenArmorSet
         );
         // Enhanced -> Superior
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "superior_wolven",
                 Armors.enhancedWolvenArmorSet,
                 superiorDiagram,
@@ -161,7 +170,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.superiorWolvenArmorSet
         );
         // Superior -> Mastercrafted
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "mastercrafted_wolven",
                 Armors.superiorWolvenArmorSet,
                 mastercraftedDiagram,
@@ -169,7 +178,7 @@ public class WitcherSmithingRecipeGenerator extends SmithingRecipeGenerator {
                 Armors.mastercraftedWolvenArmorSet
         );
         // Mastercrafted -> Grandmaster
-        createSimpleArmorSetUpgrade(
+        upgradeArmorSet(
                 "grandmaster_wolven",
                 Armors.mastercraftedWolvenArmorSet,
                 grandmasterDiagram,

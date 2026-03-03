@@ -12,7 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
-import net.spell_engine.api.item.armor.Armor;
+import net.spell_engine.rpg_series.item.Armor;
 import net.witcher_rpg.blocks.WitcherBlocks;
 import net.witcher_rpg.item.WitcherArmorDiagrams;
 import net.witcher_rpg.item.WitcherMaterials;
@@ -224,7 +224,7 @@ public class WitcherRecipeProvider extends FabricRecipeProvider {
                 Armors.wolvenArmorSet);
     }
 
-    private void createArmorSet(RecipeExporter exporter, String name, Item primary, Item secondary, Armor.Set armorSet) {
+    private void createArmorSet(RecipeExporter exporter, String name, Item primary, Item secondary, Armor.Set<?> armorSet) {
         // Helmet
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, (Item) armorSet.head)
                 .pattern("PSP")
@@ -644,9 +644,10 @@ public class WitcherRecipeProvider extends FabricRecipeProvider {
                 WitcherMaterials.SILVER_NUGGET.item());
     }
 
-    private static void disassembleArmor(RecipeExporter exporter, Armor.Set armorSet, Item output) {
+    private static void disassembleArmor(RecipeExporter exporter, Armor.Set<?> armorSet, Item output) {
+        var items = armorSet.pieces().stream().map(i -> (ItemConvertible) i).toList();
         offerSmelting(exporter,
-                armorSet.pieces(),
+                items,
                 RecipeCategory.MISC,
                 output,
                 0.1f,
@@ -654,7 +655,7 @@ public class WitcherRecipeProvider extends FabricRecipeProvider {
                 "disassemble"
         );
         offerBlasting(exporter,
-                armorSet.pieces(),
+                items,
                 RecipeCategory.MISC,
                 output,
                 0.1f,
