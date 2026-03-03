@@ -22,6 +22,7 @@ import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.casting.SpellCast;
 import net.spell_engine.internals.casting.SpellCasterEntity;
 import net.spell_engine.utils.AnimationHelper;
+import net.spell_engine.api.spell.fx.PlayerAnimation;
 import net.witcher_rpg.effect.WitcherStatusEffects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
 import net.witcher_rpg.item.WitcherTrinkets;
@@ -282,7 +283,7 @@ public abstract class LivingEntityMixin {
                 && !player.isUsingItem() && !player.isSleeping() && damagedTarget.hasStatusEffect(effect)
                 && !source.isIn(DamageTypeTags.BYPASSES_SHIELD)) {
             var tracker = PlayerLookup.tracking(damagedTarget);
-            AnimationHelper.sendAnimation(player, tracker, SpellCast.Animation.MISC, "witcher_rpg:witcher_reflexes", 1F);
+            AnimationHelper.sendAnimation(player, tracker, SpellCast.Animation.MISC, PlayerAnimation.of("witcher_rpg:witcher_reflexes"), 1F);
             int amplifier = player.getStatusEffect(effect).getAmplifier();
             int duration = player.getStatusEffect(effect).getDuration();
             if(amplifier == 0){

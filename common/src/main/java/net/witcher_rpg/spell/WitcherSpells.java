@@ -8,9 +8,10 @@ import net.spell_engine.api.datagen.SpellBuilder;
 import net.spell_engine.api.effect.SpellEngineEffects;
 import net.spell_engine.api.entity.SpellEntityPredicates;
 import net.spell_engine.api.render.LightEmission;
-import net.spell_engine.api.spell.ExternalSpellSchools;
+
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.fx.ParticleBatch;
+import net.spell_engine.api.spell.fx.PlayerAnimation;
 import net.spell_engine.api.spell.fx.Sound;
 import net.spell_engine.api.util.TriState;
 import net.spell_engine.client.gui.SpellTooltip;
@@ -191,7 +192,7 @@ public class WitcherSpells {
         spell.range = 7.5F;
         spell.tier = 1;
 
-        spell.release.animation = "witcher_rpg:sign_cast_short";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_short");
         spell.release.sound = new Sound(Sounds.AARD_SIGN_ID);
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch("witcher_rpg:aard_sign_cast",
@@ -304,7 +305,7 @@ public class WitcherSpells {
         spell.range = 0;
         spell.tier = 2;
 
-        spell.release.animation = "witcher_rpg:sign_cast_ground";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_ground");
         spell.release.sound = new Sound("witcher_rpg:yrden_sign");
         spell.release.particles = new ParticleBatch[]{ new ParticleBatch(
                 "witcher_rpg:yrden_sign_cast",
@@ -1360,7 +1361,7 @@ public class WitcherSpells {
 
         spell.school = WitcherSpellSchools.SIGN;
 
-        spell.release.animation = "spell_engine:dual_handed_weapon_charge";
+        spell.release.animation = PlayerAnimation.of("spell_engine:dual_handed_weapon_charge");
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch(
                         SpellEngineParticles.MagicParticles.get(
@@ -1627,7 +1628,7 @@ public class WitcherSpells {
 
         spell.active.cast.movement_speed = 0.75F;
         spell.active.cast.duration = 0.5F;
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.particles = new ParticleBatch[]{
                 new ParticleBatch("witcher_rpg:axii_sign_cast",
                         ParticleBatch.Shape.PIPE, ParticleBatch.Origin.LAUNCH_POINT,
@@ -1639,7 +1640,7 @@ public class WitcherSpells {
         spell.target.aim.sticky = false;
         spell.target.aim.required = true;
 
-        spell.release.animation = "witcher_rpg:sign_cast_short";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_short");
         spell.release.sound = new Sound("witcher_rpg:axii_sign");
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch("witcher_rpg:axii_sign_cast",
@@ -1679,7 +1680,7 @@ public class WitcherSpells {
         spell.range = 10;
         spell.tier = 3;
 
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.movement_speed = 0.2F;
         spell.active.cast.duration = 2.0F;
         spell.active.cast.particles = new ParticleBatch[]{
@@ -1693,7 +1694,7 @@ public class WitcherSpells {
         spell.target.aim.sticky = false;
         spell.target.aim.required = true;
 
-        spell.release.animation = "witcher_rpg:sign_cast_short";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_short");
         spell.release.sound = new Sound("witcher_rpg:axii_sign");
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch("witcher_rpg:axii_sign_cast",
@@ -1732,7 +1733,7 @@ public class WitcherSpells {
         spell.range = 5.0F;
         spell.tier = 1;
 
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.movement_speed = 0.75F;
         spell.active.cast.duration = 2.0F;
         spell.active.cast.sound = Sound.withRandomness(Identifier.of("witcher_rpg:igni_sign"), 0.2F);
@@ -1799,7 +1800,7 @@ public class WitcherSpells {
         spell.range = 6.0F;
         spell.tier = 3;
 
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.movement_speed = 0.5F;
         spell.active.cast.duration = 7.5F;
         spell.active.cast.sound = Sound.withRandomness(Identifier.of("witcher_rpg:igni_sign"), 0.4F);
@@ -1864,7 +1865,7 @@ public class WitcherSpells {
 
         spell.target.type = Spell.Target.Type.CASTER;
 
-        spell.release.animation = "witcher_rpg:sign_cast_short";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_short");
         spell.release.sound = new Sound("witcher_rpg:quen_sign");
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch(SpellEngineParticles.electric_arc_A.id().toString(),
@@ -1909,7 +1910,7 @@ public class WitcherSpells {
         spell.range = 0;
         spell.tier = 3;
 
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.movement_speed = 0.1F;
         spell.active.cast.duration = 5.0F;
         spell.active.cast.sound = Sound.withRandomness(Identifier.of("witcher_rpg:quen_sign"), 0.4F);
@@ -1980,14 +1981,14 @@ public class WitcherSpells {
         spell.range_mechanic = Spell.RangeMechanic.MELEE;
         spell.tier = 3;
 
-        spell.active.cast.animation = "witcher_rpg:rend_cast";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:rend_cast");
         spell.active.cast.movement_speed = 0.1F;
         spell.active.cast.duration = 0.3F;
 
         spell.target.type = Spell.Target.Type.AIM;
         spell.target.aim = new Spell.Target.Aim();
 
-        spell.release.animation = "witcher_rpg:rend_release";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:rend_release");
         spell.release.sound = Sound.withRandomness(Identifier.of("witcher_rpg:rend_spell"),1.5F);
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch("crimson_spore",
@@ -2065,7 +2066,7 @@ public class WitcherSpells {
 
         spell.active.cast.movement_speed = 1.3F;
         spell.active.cast.duration = 2.5F;
-        spell.active.cast.animation = "witcher_rpg:witcher_whirl";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:witcher_whirl");
         spell.active.cast.sound =  Sound.withVolume(Identifier.of("witcher_rpg:whirl"),0.6F);
         spell.active.cast.channel_ticks = 8;
 
@@ -2117,7 +2118,7 @@ public class WitcherSpells {
         spell.target.area = new Spell.Target.Area();
         spell.target.area.angle_degrees = 360;
 
-        spell.release.animation = "witcher_rpg:sign_cast_ground";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_ground");
         spell.release.sound = new Sound(Sounds.AARD_SIGN_ID);
         spell.release.particles = new ParticleBatch[]{
                 new ParticleBatch(SpellEngineParticles.smoke_medium.id().toString(),
@@ -2171,7 +2172,7 @@ public class WitcherSpells {
         spell.range = 3;
         spell.tier = 3;
 
-        spell.active.cast.animation = "witcher_rpg:sign_cast_long";
+        spell.active.cast.animation = PlayerAnimation.of("witcher_rpg:sign_cast_long");
         spell.active.cast.duration = 0.5F;
         spell.active.cast.particles = new ParticleBatch[]{
                 new ParticleBatch("witcher_rpg:yrden_sign_cast",
@@ -2182,7 +2183,7 @@ public class WitcherSpells {
                         1.0F, 0.01F, 0.06F)
         };
 
-        spell.release.animation = "witcher_rpg:sign_cast_ground";
+        spell.release.animation = PlayerAnimation.of("witcher_rpg:sign_cast_ground");
         spell.release.sound = new Sound("witcher_rpg:yrden_sign");
 
         var spawn = new Spell.Impact();
