@@ -5,13 +5,13 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.spell_engine.api.item.SpellBooks;
+
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.misc.MasterSpellBook;
 import net.witcher_rpg.item.misc.UpgradeItem;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.function.Function;
 
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
@@ -129,12 +129,8 @@ public class WitcherMaterials {
             e.container.item = item;
             Registry.register(Registries.ITEM, e.id(), item);
         }
-        var books = List.of("base_signs", "fencing");
-        for (var name : books) {
-            SpellBooks.createAndRegister(Identifier.of(MOD_ID, name), WitcherGroup.WITCHER_KEY);
-        }
         // Create and register MASTER_BOOK during registration phase
-        MASTER_BOOK_CONTAINER.item = new MasterSpellBook(Identifier.of(MOD_ID, "master_spell_book"), new Item.Settings().maxCount(1));
+        MASTER_BOOK_CONTAINER.item = new MasterSpellBook(new Item.Settings().maxCount(1));
         Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "master_spell_book"), MASTER_BOOK());
         ItemGroupEvents.modifyEntriesEvent(WitcherGroup.WITCHER_KEY).register(content -> {
             for (Entry e : ENTRIES) {

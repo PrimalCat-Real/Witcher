@@ -75,21 +75,21 @@ public class WitcherSpellSchools {
         });
         SIGN.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
                 var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-                var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+                var rate = (value  / 100.0);
                 return rate - 1;
         });
         SIGN.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SIGN.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(SIGN);
@@ -111,21 +111,21 @@ public class WitcherSpellSchools {
         });
         AARD.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
             var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-            var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = (value  / 100.0);
             return rate - 1;
         });
         AARD.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         AARD.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(AARD);
@@ -147,21 +147,21 @@ public class WitcherSpellSchools {
         });
         AXII.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
             var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-            var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = (value  / 100.0);
             return rate - 1;
         });
         AXII.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         AXII.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(AXII);
@@ -183,21 +183,21 @@ public class WitcherSpellSchools {
         });
         IGNI.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
             var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-            var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = (value  / 100.0);
             return rate - 1;
         });
         IGNI.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         IGNI.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(IGNI);
@@ -219,21 +219,21 @@ public class WitcherSpellSchools {
         });
         QUEN.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
             var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-            var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = (value  / 100.0);
             return rate - 1;
         });
         QUEN.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         QUEN.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(QUEN);
@@ -255,21 +255,21 @@ public class WitcherSpellSchools {
         });
         YRDEN.addSource(SpellSchool.Trait.HASTE, SpellSchool.Apply.ADD, query -> {
             var value = query.entity().getAttributeValue(SpellPowerMechanics.HASTE.attributeEntry);
-            var rate = (value  / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = (value  / 100.0);
             return rate - 1;
         });
         YRDEN.addSource(SpellSchool.Trait.CRIT_DAMAGE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_damage_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_DAMAGE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_damage_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         YRDEN.addSource(SpellSchool.Trait.CRIT_CHANCE, SpellSchool.Apply.ADD, query -> {
             var value = SpellPowerMod.attributesConfig.value.base_spell_critical_chance_percentage
                     + query.entity().getAttributeValue(SpellPowerMechanics.CRITICAL_CHANCE.attributeEntry);
             var value2 = (query.entity().getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER) - 100) / adrenaline_crit_chance_div;
-            var rate = ((value + value2) / PERCENT_ATTRIBUTE_BASELINE);
+            var rate = ((value + value2) / 100.0);
             return rate - 1;
         });
         SpellSchools.configureSpellCritDamage(YRDEN);
