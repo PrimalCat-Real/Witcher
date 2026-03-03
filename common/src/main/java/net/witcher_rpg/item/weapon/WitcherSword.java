@@ -29,15 +29,15 @@ public class WitcherSword extends SpellSwordItem {
     }
 
     // Factory methods for Weapon.Entry
-    public static net.spell_engine.api.item.weapon.Weapon.Factory with1Slot() {
+    public static net.spell_engine.rpg_series.item.Weapon.Factory with1Slot() {
         return (material, settings) -> new WitcherSword(material, settings, 1);
     }
 
-    public static net.spell_engine.api.item.weapon.Weapon.Factory with2Slots() {
+    public static net.spell_engine.rpg_series.item.Weapon.Factory with2Slots() {
         return (material, settings) -> new WitcherSword(material, settings, 2);
     }
 
-    public static net.spell_engine.api.item.weapon.Weapon.Factory with3Slots() {
+    public static net.spell_engine.rpg_series.item.Weapon.Factory with3Slots() {
         return (material, settings) -> new WitcherSword(material, settings, 3);
     }
 

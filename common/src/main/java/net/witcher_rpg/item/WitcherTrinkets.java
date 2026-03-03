@@ -16,7 +16,6 @@ import net.spell_engine.api.config.AttributeModifier;
 import net.spell_engine.api.config.ConfigUtil;
 import net.spell_engine.api.spell.SpellDataComponents;
 import net.spell_engine.api.spell.container.SpellContainer;
-import net.spell_engine.api.spell.container.SpellContainerHelper;
 import net.spell_power.api.SpellPowerMechanics;
 import net.witcher_rpg.config.TrinketConfig;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
@@ -484,19 +483,19 @@ public class WitcherTrinkets {
             );
     ///TRINKETS
     public static final Entry PURE_SILVER = add(new Entry(10, "pure_silver", "Pure Silver"))
-            .spell(SpellContainerHelper.createForRelic(Identifier.of("witcher_rpg:pure_silver")))
+            .spell(new SpellContainer(SpellContainer.ContentType.ANY, "", "", 0, List.of("witcher_rpg:pure_silver")))
             .config(new TrinketConfig.Entry()
             );
     public static final Entry ROSE_OF_REMEMBRANCE = add(new Entry(10, "rose_of_remembrance", "Rose of Remembrance"))
-            .spell(SpellContainerHelper.createForRelic(Identifier.of("witcher_rpg:rose_of_remembrance")))
+            .spell(new SpellContainer(SpellContainer.ContentType.ANY, "", "", 0, List.of("witcher_rpg:rose_of_remembrance")))
             .config(new TrinketConfig.Entry()
             );
     public static final Entry CRYSTAL_SKULL = add(new Entry(10, "crystal_skull", "Crystal Skull"))
-            .spell(SpellContainerHelper.createForRelic(Identifier.of("witcher_rpg:crystal_skull")))
+            .spell(new SpellContainer(SpellContainer.ContentType.ANY, "", "", 0, List.of("witcher_rpg:crystal_skull")))
             .config(new TrinketConfig.Entry()
             );
     public static final Entry SUNSTONE = add(new Entry(10, "sunstone", "Sunstone"))
-            .spell(SpellContainerHelper.createForRelic(Identifier.of("witcher_rpg:sunstone")))
+            .spell(new SpellContainer(SpellContainer.ContentType.ANY, "", "", 0, List.of("witcher_rpg:sunstone")))
             .config(new TrinketConfig.Entry()
             );
 

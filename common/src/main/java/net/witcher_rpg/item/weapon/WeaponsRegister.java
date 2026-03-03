@@ -10,11 +10,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.spell_engine.api.config.AttributeModifier;
 import net.spell_engine.api.config.WeaponConfig;
-import net.spell_engine.api.item.Equipment;
-import net.spell_engine.api.item.weapon.Weapon;
+import net.spell_engine.rpg_series.item.Equipment;
+import net.spell_engine.rpg_series.item.Weapon;
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.WitcherGroup;
 import net.witcher_rpg.item.WitcherMaterials;
+import net.spell_engine.api.spell.container.SpellContainer;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class WeaponsRegister {
     public static final ArrayList<Weapon.Entry> entries = new ArrayList<>();
     private static Weapon.Entry entry(String name, Weapon.CustomMaterial material, Weapon.Factory factory, WeaponConfig defaults, Equipment.WeaponType weaponType) {
         var entry = new Weapon.Entry(MOD_ID, name, material, factory, defaults, weaponType);
-        entry.castSpell();
+        entry.spellContainer(new SpellContainer(SpellContainer.ContentType.ANY, "", "", "", 1, java.util.List.of(), 0));
         entries.add(entry);
         return entry;
     }
@@ -161,20 +162,20 @@ public class WeaponsRegister {
             Weapon.CustomMaterial.matching(ToolMaterials.IRON, () -> Ingredient.ofItems(WitcherMaterials.SILVER_INGOT.item())), 4.5F)
             .translatedName("Silver Witcher Sword")
             .attribute(AttributeModifier.bonus(SIGN_INTENSITY,2.5F))
-            .spell(silver_sword)
+            .spellContainer(new SpellContainer(SpellContainer.ContentType.ANY, "", "", "", 1, java.util.List.of(silver_sword.toString()), 0))
             .loot(Equipment.LootProperties.of(1));
     public static final Weapon.Entry witcher_meteorite_sword = witcherswords("meteorite_witcher_sword",
             Weapon.CustomMaterial.matching(ToolMaterials.DIAMOND, () -> Ingredient.ofItems(WitcherMaterials.METEORITE_INGOT.item())), 4.5F)
             .translatedName("Meteorite Witcher Sword")
             .attribute(AttributeModifier.bonus(SIGN_INTENSITY,3.0F))
-            .spell(silver_sword)
+            .spellContainer(new SpellContainer(SpellContainer.ContentType.ANY, "", "", "", 1, java.util.List.of(silver_sword.toString()), 0))
             .loot(Equipment.LootProperties.of(2));
     public static final Weapon.Entry witcher_meteorite_silver_sword = witcherswords("meteorite_silver_witcher_sword",
             Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, () -> Ingredient.ofItems(WitcherMaterials.METEORITE_SILVER_INGOT.item())), 5.0F)
             .translatedName("Meteorite Silver Witcher Sword")
             .attribute(AttributeModifier.bonus(SIGN_INTENSITY,4.0F))
             .attribute(AttributeModifier.multiply(ADRENALINE,0.05F))
-            .spell(silver_sword)
+            .spellContainer(new SpellContainer(SpellContainer.ContentType.ANY, "", "", "", 1, java.util.List.of(silver_sword.toString()), 0))
             .loot(Equipment.LootProperties.of(3));
 
     private static final String BETTER_END = "betterend";
@@ -243,20 +244,20 @@ public class WeaponsRegister {
                     .attribute(AttributeModifier.bonus(AXII_INTENSITY,3.0F))
                     .attribute(AttributeModifier.bonus(QUEN_INTENSITY,3.0F))
                     .attribute(AttributeModifier.multiply(ADRENALINE,0.05F))
-                    .spell(reach_of_the_damned_passive)
+                    .withAdditionalSpell(reach_of_the_damned_passive.toString())
                     .rarity = Rarity.RARE;
             witcherrelicswords("aerondight_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE,() -> Ingredient.ofItems(WitcherMaterials.METEORITE_SILVER_INGOT.item())), 6.5F)
                     .translatedName("Aerondight")
                     .attribute(AttributeModifier.multiply(ADRENALINE,0.1F))
                     .attribute(AttributeModifier.bonus(SIGN_INTENSITY,5.0F))
-                    .spell(aerondight_passive)
+                    .withAdditionalSpell(aerondight_passive.toString())
                     .rarity = Rarity.EPIC;
             witcherrelicswords("iris_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE,() -> Ingredient.ofItems(WitcherMaterials.DARK_STEEL_INGOT.item())), 7.0F)
                     .translatedName("Iris")
                     .attribute(AttributeModifier.multiply(ADRENALINE,0.15F))
-                    .spell(iris_passive)
+                    .withAdditionalSpell(iris_passive.toString())
                     .rarity = Rarity.EPIC;
         }
         Weapon.register(configs, entries, WitcherGroup.WITCHER_KEY);
